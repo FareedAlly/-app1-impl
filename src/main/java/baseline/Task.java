@@ -22,6 +22,8 @@ public class Task
         // Check to see if due date is in the correct format of YYYY-MM-DD
         // Return true if correct
 
+        return true;
+
     }
 
 }
