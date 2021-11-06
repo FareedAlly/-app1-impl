@@ -1,0 +1,60 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class Application
+{
+    +Menu.fxml
+
+}
+
+class AllToDoListsController
+{
+    +void addListClicked(ActionEvent event)
+    +void deleteListClicked(ActionEvent event)
+    +void editListClicked(ActionEvent event)
+    +void exportListsClicked(ActionEvent event)
+    +void viewListClicked(ActionEvent event)
+
+}
+
+class currentToDoListController
+{
+    +void returnToListsClicked(ActionEvent event)
+    +void editListClicked(ActionEvent event)
+    +void exportClicked(ActionEvent event)
+    +void taskCompletedClicked(ActionEvent event)
+    +void viewCompletedTasksClicked(ActionEvent event)
+    +void viewIncompleteTasks(ActionEvent event)
+
+}
+
+class mainMenuController
+{
+    +void newListClicked(ActionEvent event)
+    +void viewListsClicked(ActionEvent event)
+
+}
+
+class newListController
+{
+    +void addTaskClicked(ActionEvent event)
+    +void editTaskClicked(ActionEvent event)
+    +void importButtonClicked(ActionEvent event)
+    +void mainMenuButtonClicked(ActionEvent event)
+    +void removeTaskClicked(ActionEvent event)
+}
+
+class Task
+{
+    +public Task(String taskName)
+    +public Task(String taskName, String info, String dueDate)
+    +private boolean validateDate(String dueDate)
+}
+
+Application-->mainMenuController
+mainMenuController-->newListController
+mainMenuController-->AllToDoListsController
+AllToDoListsController-->currentToDoListController
+
+
+@enduml
