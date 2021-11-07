@@ -12,11 +12,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Application extends javafx.application.Application {
+public class ToDoListApplication extends javafx.application.Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ListManager.fxml"));
 
         primaryStage.setTitle("To-do list");
         primaryStage.setScene(new Scene(root, 600, 500));
