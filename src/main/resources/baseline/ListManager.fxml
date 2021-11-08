@@ -29,10 +29,20 @@
          <children>
             <CheckBox fx:id="taskCompletedCheckBox" mnemonicParsing="false" text="Is the task completed?">
                <HBox.margin>
-                  <Insets left="150.0" />
+                  <Insets left="75.0" />
                </HBox.margin>
             </CheckBox>
             <Button fx:id="addTask" mnemonicParsing="false" onAction="#addTaskClicked" text="Add Task">
+               <HBox.margin>
+                  <Insets left="50.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveButtonClicked" text="Save List">
+               <HBox.margin>
+                  <Insets left="50.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="loadButton" mnemonicParsing="false" onAction="#loadButtonClicked" text="Load List">
                <HBox.margin>
                   <Insets left="50.0" />
                </HBox.margin>
@@ -42,60 +52,54 @@
             <Insets top="10.0" />
          </VBox.margin>
       </HBox>
-      <Label alignment="CENTER" prefHeight="17.0" prefWidth="657.0" text="Your Current To-Do List">
+      <HBox prefHeight="37.0" prefWidth="600.0">
+         <children>
+            <CheckBox fx:id="showCompletedTasks" mnemonicParsing="false" onAction="#showCompletedTasksClicked" text="Show Completed Tasks">
+               <HBox.margin>
+                  <Insets left="25.0" top="15.0" />
+               </HBox.margin>
+            </CheckBox>
+            <CheckBox fx:id="showIncompleteTasks" mnemonicParsing="false" onAction="#showIncompleteTasksClicked" text="Show Incomplete Tasks">
+               <HBox.margin>
+                  <Insets left="25.0" top="15.0" />
+               </HBox.margin>
+            </CheckBox>
+            <Button fx:id="removeTask" mnemonicParsing="false" onAction="#removeTaskClicked" text="Remove Task">
+               <HBox.margin>
+                  <Insets left="25.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="clearEntireList" mnemonicParsing="false" onAction="#clearEntireListClicked" text="Clear List">
+               <HBox.margin>
+                  <Insets left="25.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <Label fx:id="status" alignment="CENTER" prefHeight="26.0" prefWidth="600.0">
          <font>
-            <Font size="18.0" />
+            <Font size="24.0" />
          </font>
          <VBox.margin>
             <Insets top="10.0" />
          </VBox.margin>
       </Label>
-      <HBox prefHeight="37.0" prefWidth="600.0">
-         <children>
-            <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveButtonClicked" text="Save List">
-               <HBox.margin>
-                  <Insets left="25.0" top="10.0" />
-               </HBox.margin>
-            </Button>
-            <Button fx:id="loadButton" mnemonicParsing="false" onAction="#loadButtonClicked" text="Load List">
-               <HBox.margin>
-                  <Insets left="50.0" top="10.0" />
-               </HBox.margin>
-            </Button>
-            <CheckBox fx:id="showCompletedTasks" mnemonicParsing="false" onAction="#showCompletedTasksClicked" text="Show Completed Tasks">
-               <HBox.margin>
-                  <Insets left="50.0" top="15.0" />
-               </HBox.margin>
-            </CheckBox>
-            <CheckBox fx:id="showIncompleteTasks" mnemonicParsing="false" onAction="#showIncompleteTasksClicked" text="Show Incomplete Tasks">
-               <HBox.margin>
-                  <Insets left="50.0" top="15.0" />
-               </HBox.margin>
-            </CheckBox>
-         </children>
-      </HBox>
-      <HBox prefHeight="0.0" prefWidth="600.0">
-         <children>
-            <Button fx:id="removeTask" mnemonicParsing="false" onAction="#removeTaskClicked" text="Remove Task">
-               <HBox.margin>
-                  <Insets left="150.0" top="10.0" />
-               </HBox.margin>
-            </Button>
-            <Button fx:id="clearEntireList" mnemonicParsing="false" onAction="#clearEntireListClicked" text="Clear Entire List">
-               <HBox.margin>
-                  <Insets left="110.0" top="10.0" />
-               </HBox.margin>
-            </Button>
-         </children>
-      </HBox>
-      <TableView fx:id="listView" prefHeight="200.0" prefWidth="200.0">
-        <columns>
-          <TableColumn fx:id="tasksColumn" prefWidth="75.0" text="Tasks" />
-          <TableColumn fx:id="completionDateColumn" minWidth="100.0" prefWidth="75.0" text="Completion Date" />
-            <TableColumn fx:id="completedColumn" prefWidth="75.0" text="Completed?" />
-        </columns>
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="657.0" text="Your Current To-Do List">
          <VBox.margin>
             <Insets top="10.0" />
+         </VBox.margin>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TableView fx:id="listView" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="tasksColumn" minWidth="262.5" prefWidth="75.0" text="Tasks" />
+          <TableColumn fx:id="completionDateColumn" minWidth="262.5" prefWidth="75.0" text="Completion Date" />
+            <TableColumn fx:id="completedColumn" maxWidth="200.0" prefWidth="75.0" text="Completed?" />
+        </columns>
+         <VBox.margin>
+            <Insets />
          </VBox.margin>
       </TableView>
    </children>
