@@ -1,3 +1,8 @@
+/*
+ *  UCF COP3330 Summer 2021 Application Assignment 1 Solution
+ *  Copyright 2021 Fareed Ally
+ */
+
 package baseline;
 
 import javafx.collections.FXCollections;
@@ -89,10 +94,10 @@ public class ListManagerController
 
         completedColumn.setOnEditCommit(event ->
         {
-                Item item = event.getRowValue();
-                item.setFinished(event.getNewValue());
+            Item item = event.getRowValue();
+            item.setFinished(event.getNewValue());
 
-                listView.refresh();
+            listView.refresh();
         });
     }
 
@@ -122,13 +127,19 @@ public class ListManagerController
         index++;
     }
 
-    private void addTaskAndDisplay(String task, String completionDate, boolean completed)
+    public void addItemToList(String task, String completionDate, boolean completed)
+    {
+        //add a new item to the List using the passed in description, dueDate, and boolean
+        Item.getToDoList().add(new Item(task, completionDate, completed));
+    }
+
+    public void addTaskAndDisplay(String task, String completionDate, boolean completed)
     {
         // Allow the user to enter a task with no completion date, but alert the user that they are doing so
         if(completionDate.equals(""))
         {
             status.setText("Task has no completion date. ");
-            Item.getToDoList().add(new Item(task, completionDate, completed));
+            addItemToList(task, completionDate, completed);
             // Call method to display task
             display();
         }
@@ -137,7 +148,7 @@ public class ListManagerController
         else if(!check.checkCompletionDate(completionDate))
         {
             status.setText("Item added with no due date. ");
-            Item.getToDoList().add(new Item(task, completionDate, completed));
+            addItemToList(task, completionDate, completed);
             display();
         }
 
@@ -145,7 +156,7 @@ public class ListManagerController
         else
         {
             status.setText("Item added to list! ");
-            Item.getToDoList().add(new Item(task, completionDate, completed));
+            addItemToList(task, completionDate, completed);
             display();
         }
 
@@ -253,15 +264,15 @@ public class ListManagerController
             }
 
         } catch (IOException exception)
-          {
-              // If error, let user know
-              if(this.status != null)
-              {
-                  status.setText("File not found. ");
-              }
+        {
+            // If error, let user know
+            if(this.status != null)
+            {
+                status.setText("File not found. ");
+            }
 
-              exception.printStackTrace();
-          }
+            exception.printStackTrace();
+        }
     }
 
     @FXML
@@ -335,13 +346,13 @@ public class ListManagerController
                 writer.println(item.getTask() + "," + item.getCompletionDate() + "," + item.getFinished());
             }
         } catch(FileNotFoundException exception)
-         {
-             // If error, let user know
-             if(this.status != null)
-             {
-                 status.setText("File not found. ");
-             }
-         }
+        {
+            // If error, let user know
+            if(this.status != null)
+            {
+                status.setText("File not found. ");
+            }
+        }
 
     }
 

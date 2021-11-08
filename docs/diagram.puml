@@ -1,60 +1,44 @@
 @startuml
 'https://plantuml.com/sequence-diagram
 
-class Application
+class ToDoListApplication
 {
-    +Menu.fxml
++void start(Stage primaryStage)
++void main(String[] args)
+}
+
+class Item
+{
++public Item(String task, String completionDate, boolean finished)
++ public void setTask(String task)
++public void setCompletionDate(String completionDate)
++public void setFinished(boolean finished)
 
 }
 
-class AllToDoListsController
+class checkInfo
 {
-    +void addListClicked(ActionEvent event)
-    +void deleteListClicked(ActionEvent event)
-    +void editListClicked(ActionEvent event)
-    +void exportListsClicked(ActionEvent event)
-    +void viewListClicked(ActionEvent event)
-
++public boolean checkCompletionDate(String completionDate)
++ public boolean checkTask(String task)
 }
 
-class currentToDoListController
+class ListManagerController
 {
-    +void returnToListsClicked(ActionEvent event)
-    +void editListClicked(ActionEvent event)
-    +void exportClicked(ActionEvent event)
-    +void taskCompletedClicked(ActionEvent event)
-    +void viewCompletedTasksClicked(ActionEvent event)
-    +void viewIncompleteTasks(ActionEvent event)
-
++void start()
++void addTaskClicked(ActionEvent event)
++public void addItemToList(String task, String completionDate, boolean completed)
++public void addTaskAndDisplay(String task, String completionDate, boolean completed)
++public void createTask()
++void clearEntireListClicked(ActionEvent event)
++public void loadFile(File file) throws FileNotFoundException
++ void saveButtonClicked(ActionEvent event) throws FileNotFoundException
++void showCompletedTasksClicked(ActionEvent event)
++void showIncompleteTasksClicked(ActionEvent event)
 }
 
-class mainMenuController
-{
-    +void newListClicked(ActionEvent event)
-    +void viewListsClicked(ActionEvent event)
-
-}
-
-class newListController
-{
-    +void addTaskClicked(ActionEvent event)
-    +void editTaskClicked(ActionEvent event)
-    +void importButtonClicked(ActionEvent event)
-    +void mainMenuButtonClicked(ActionEvent event)
-    +void removeTaskClicked(ActionEvent event)
-}
-
-class Task
-{
-    +public Task(String taskName)
-    +public Task(String taskName, String info, String dueDate)
-    +private boolean validateDate(String dueDate)
-}
-
-Application-->mainMenuController
-mainMenuController-->newListController
-mainMenuController-->AllToDoListsController
-AllToDoListsController-->currentToDoListController
-
+TodoListApplication --> ListManagerController
+ListManagerController <-- Item
+ListManagerController -->checkInfo
+Item --> checkInfo
 
 @enduml

@@ -1,3 +1,8 @@
+/*
+ *  UCF COP3330 Summer 2021 Application Assignment 1 Solution
+ *  Copyright 2021 Fareed Ally
+ */
+
 package baseline;
 
 // The purpose of this class is to check that each task is unique as well as if all the entered info fits the requirements

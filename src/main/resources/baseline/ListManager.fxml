@@ -93,11 +93,11 @@
          </font>
       </Label>
       <TableView fx:id="listView" prefHeight="200.0" prefWidth="200.0">
-        <columns>
-          <TableColumn fx:id="tasksColumn" minWidth="262.5" prefWidth="75.0" text="Tasks" />
-          <TableColumn fx:id="completionDateColumn" minWidth="262.5" prefWidth="75.0" text="Completion Date" />
+         <columns>
+            <TableColumn fx:id="tasksColumn" minWidth="262.5" prefWidth="75.0" text="Tasks" />
+            <TableColumn fx:id="completionDateColumn" minWidth="262.5" prefWidth="75.0" text="Completion Date" />
             <TableColumn fx:id="completedColumn" maxWidth="200.0" prefWidth="75.0" text="Completed?" />
-        </columns>
+         </columns>
          <VBox.margin>
             <Insets />
          </VBox.margin>

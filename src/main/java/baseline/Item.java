@@ -1,3 +1,8 @@
+/*
+ *  UCF COP3330 Summer 2021 Application Assignment 1 Solution
+ *  Copyright 2021 Fareed Ally
+ */
+
 package baseline;
 
 import java.util.ArrayList;
@@ -82,10 +87,5 @@ public class Item
         return toDoList;
     }
 
-    public static void remove(Item task)
-    {
-        // Removes a task from the current list
-        toDoList.remove(task);
-    }
 
 }
