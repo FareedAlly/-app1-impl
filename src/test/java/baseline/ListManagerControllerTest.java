@@ -18,12 +18,12 @@ class ListManagerControllerTest {
         Item.getToDoList().clear();
         for (int i = 0; i < 10; i++)
         {
-            String desc = "falseItem" + i;
+            String desc = "test" + i;
             Item.getToDoList().add(new Item(desc, "", false));
         }
         for (int i = 0; i < 10; i++)
         {
-            String desc = "trueItem" + i;
+            String desc = "test" + i;
             Item.getToDoList().add(new Item(desc, "", true));
         }
 
@@ -44,7 +44,7 @@ class ListManagerControllerTest {
         Item.getToDoList().clear();
         for (int i = 0; i < 50; i++)
         {
-            String desc = "item" + i;
+            String desc = "test" + i;
             controller.addItemToList(desc, "", false);
         }
         assertEquals(50, Item.getToDoList().size());
